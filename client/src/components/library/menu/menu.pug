@@ -1,0 +1,11 @@
+- var active = active ? active-1 : false
+div.menu(class=postfix ? 'menu_'+ postfix: false)
+    ul.menu__list(class=postfix ? 'menu_list_'+ postfix: false)
+            each item, index in menu
+                if (active===index)
+                    li.menu__item(class=postfix ? 'menu_list_item_'+ postfix + ' menu_list_item_'+ postfix +
+                        '--active': false)
+                        a(href=item.href)=item.name
+                else
+                    li.menu__item(class=postfix ? 'menu_list_item_' + postfix: false)
+                        a(href=item.href)=item.name

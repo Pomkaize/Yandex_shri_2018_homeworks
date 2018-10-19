@@ -1,0 +1,13 @@
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 2px;
+}
+@include for-custom-width-from-to(0, $mobileTimelineFromVerticalToHor) {
+.logo {
+    position: relative;
+    top:3px;
+  }
+}

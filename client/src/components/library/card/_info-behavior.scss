@@ -1,0 +1,6 @@
+.card--info {
+  background-color: $background;
+  &:hover {
+    background-color: $backgroundHovered;
+  }
+}

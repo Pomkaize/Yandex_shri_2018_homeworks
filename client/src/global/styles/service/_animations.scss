@@ -1,0 +1,253 @@
+
+.animation_background_opacity_off {
+  animation: background_opacity_off #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes background_opacity_off {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.animation_background_opacity_on {
+  animation: background_opacity_on #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes background_opacity_on {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* animation popup */
+
+.animation_background_blur_on {
+  animation: background_blur_on #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes background_blur_on {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(3px);
+  }
+}
+
+
+.animation_background_blur_off {
+  animation: background_blur_off #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes background_blur_off {
+  0% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+
+
+
+.animation_popup_open {
+  animation: popup_open #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes popup_open {
+    0% {
+      transform-origin: top left;
+      opacity: 0;
+      transform: scale(0.1);
+    }
+  100% {
+    opacity: 1;
+    transform-origin: top left;
+    transform: scale(1);
+  }
+}
+
+.animation_popup_close {
+  animation: popup_close #{$popupAnimationTime} ease forwards;
+}
+
+@keyframes popup_close {
+    0% {
+    opacity: 1;
+    transform-origin: top left;
+    transform: scale(1);
+  }
+  100% {
+    transform-origin: top left;
+    opacity: 0;
+    transform: scale(0.1);
+  }
+}
+
+
+/* animation popup */
+
+
+/* animation favorite_sc */
+
+.animation_cards_slide_off_left_1 {
+  animation: cards_slide_off_left_1 #{$favoriteScAnimationTime} ease forwards;
+}
+
+.animation_cards_slide_on_left_1 {
+  animation: cards_slide_on_left_1 #{$favoriteScAnimationTime} ease forwards;
+}
+
+@keyframes cards_slide_off_left_1  {
+  0% { opacity: 1; display: none; max-height: 150px;  transform:translateX(0); padding: 14px; margin: 0 15px  15px 0; }
+  25% {opacity: 0; display: none; max-height: 150px;  transform:translateX(-100px); padding: 14px; margin: 0 15px  15px 0; }
+  50% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0;  transform:translateX(-100px)}
+  75% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0;  transform:translateX(-100px) }
+  100% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0; transform:translateX(-100px) }
+}
+
+@keyframes cards_slide_on_left_1 {
+  100% { opacity: 1; transform:translateX(0);max-height: 150px; padding: 14px; margin: 0 15px  15px 0;}
+  75% { opacity: 0;  transform:translateX(100px); max-height: 150px; padding: 14px; margin: 0 15px  15px 0;}
+  50% { opacity:0;   transform:translateX(100px); max-height: 150px; padding: 14px; margin: 0 15px  15px 0; }
+  25% { opacity:0;  transform:translateX(100px);  max-height: 0; padding: 0; margin: 0}
+  0% { opacity:0;   transform:translateX(100px); max-height: 0; padding: 0; margin: 0}
+}
+
+.animation_cards_slide_off_right_1 {
+  animation: cards_slide_off_right_1 #{$favoriteScAnimationTime} ease forwards;
+}
+
+.animation_cards_slide_on_right_1 {
+  animation: cards_slide_on_right_1 #{$favoriteScAnimationTime} ease forwards;
+}
+
+@keyframes cards_slide_off_right_1  {
+  0% { opacity: 1; display: none; max-height: 150px;  transform:translateX(0); padding: 14px; margin: 0 15px  15px 0; }
+  25% {opacity: 0; display: none; max-height: 150px;  transform:translateX(100px); padding: 14px; margin: 0 15px  15px 0; }
+  50% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0 }
+  75% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0 }
+  100% { opacity:0; display: none; max-height: 0; padding: 0; margin: 0 }
+}
+
+@keyframes cards_slide_on_right_1 {
+  100% { opacity: 1; transform:translateX(0);max-height: 150px; padding: 14px; margin: 0 15px  15px 0;}
+  75% { opacity: 0;  transform:translateX(-40px); max-height: 150px; padding: 14px; margin: 0 15px  15px 0;}
+  50% { opacity:0; transform:translateX(-40px); max-height: 150px; padding: 14px; margin: 0 15px  15px 0; }
+  25% { opacity:0; transform:translateX(-40px); max-height: 0; padding: 0; margin: 0}
+  0% { opacity:0; transform:translateX(-40px); max-height: 0; padding: 0; margin: 0}
+}
+
+
+/* end animation favorite_sc */
+
+
+// cards - fake card
+
+.animation_hide_fake_on {
+  animation: hide_on #{$fakeCardAnimation} ease forwards;
+}
+
+@keyframes hide_on {
+  from { bottom:-80px; }
+  to { bottom:-200px; }
+}
+
+
+.animation_hide_fake_off {
+  animation: hide_off #{$fakeCardAnimation} ease forwards;
+}
+
+@keyframes hide_off {
+  to { bottom:-80px; }
+  from { bottom:-200px; }
+}
+
+
+/* header animation `a*/
+
+.animation_slide_off {
+
+  animation: slide 0.3s ease forwards;
+}
+
+@keyframes slide {
+  to {top:0px; opacity: 0}
+  from {top:64px; opacity: 1}
+}
+
+ .animation_slide_on {
+   animation: slide_on 0.3s ease forwards;
+ }
+
+ @keyframes slide_on {
+   from {top:0px; opacity: 0}
+   to {top:64px; opacity: 1}
+ }
+
+
+
+ /* i like filters */
+.animation_filter_on {
+  will-change: tranform;
+  animation:filter_on #{$filterAnimationTime} ease forwards;
+}
+ .animation_filter_off {
+   will-change: tranform;
+   animation:filter_off #{$filterAnimationTime} ease forwards;
+ }
+
+ @keyframes filter_on {
+     from {
+       opacity: 0;
+       display: none;
+       transform: translateY(20px);
+     }
+     to {
+       opacity: 1 !important;
+       display: flex !important;
+       transform: translateY(0) !important;
+     }
+   }
+
+ @keyframes filter_off {
+   from {
+     opacity: 1 !important;
+     display: flex !important;
+     transform: translateY(0) !important;
+   }
+   to {
+     opacity: 0;
+     display: none;
+     transform: translateY(20px);
+   }
+ }
+
+.animation_cards_off {
+  animation: cards_off #{$filterAnimationTime} ease forwards;
+}
+
+.animation_cards_on {
+  animation: cards_on #{$filterAnimationTime} ease forwards;
+}
+
+@keyframes cards_off  {
+  0% { opacity: 1; max-width: 220px; padding: 14px; margin-left: 15px  }
+  50% { opacity:0; max-width: 220px; padding: 14px; margin-left: 15px }
+  100% { opacity:0; max-width: 0; margin: 0; padding: 0}
+}
+
+@keyframes cards_on{
+  100% { opacity: 1; max-width: 220px; padding: 14px;  }
+  50% { opacity:0; max-width: 220px; padding: 14px; margin-left: 15px}
+  0% { opacity:0; max-width: 0; margin: 0; padding: 0}
+}

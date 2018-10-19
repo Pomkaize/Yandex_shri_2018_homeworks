@@ -1,0 +1,28 @@
+.card--critical {
+  background-color: $critical;
+  padding: $cardPaddingV 0 0 0 !important;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    .card_description {
+      background-color: $backgroundHovered;
+    }
+  }
+
+  .card_description {
+    padding: 20px;
+    transition: background-color 0.2s ease;
+    background-color: #FAFAFA;
+    border-radius: 18px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+  .card_header, .card_target {
+    padding: 0 $cardPaddingH;
+  }
+
+  .card_target__source, .card_target__time, .card_header__title h3 {
+    color: $whiteText;
+  }
+}

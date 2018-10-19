@@ -1,0 +1,51 @@
+@mixin for-phone-only {
+  @media (max-width: $phoneWidthDown) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: $tabletPortraitUp) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: $tabletLandscapeUp) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: $desktopUp) { @content; }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: $bigDesktop) { @content; }
+}
+
+
+@mixin for-custom-width-from-to ($custom-width-from, $custom-width-to )
+{
+  @media (min-width: $custom-width-from) AND (max-width: $custom-width-to - 1)  { @content; }
+}
+
+@mixin for-custom-width-from ($custom-width-from) {
+  @media (min-width: $custom-width-from) { @content; }
+}
+
+@mixin background($name,$position:0 0,$repeat: no-repeat)
+{
+  background: {
+    image: url("../images/compressed/#{$name}@1x.png");
+    position: $position;
+    repeat: $repeat;
+  }
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+    .img {
+      background-image: url("images/#{$name}@2x.png");
+    }
+  }
+}
+
+@mixin background_custom($name,$position:0 0,$repeat: no-repeat)
+{
+  background: {
+    image: url("images/#{$name}");
+    position: $position;
+    repeat: $repeat;
+  }
+}

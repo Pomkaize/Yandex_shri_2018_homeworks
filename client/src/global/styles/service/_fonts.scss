@@ -1,0 +1,20 @@
+* {
+  font-family: 'Arial', sans-serif;
+  color: $mainGray;
+}
+
+/* trying to simulate ArialBoldMT */
+p,a {
+  letter-spacing: 0.04em;
+}
+h1,h2 {
+  letter-spacing: 0.02em;
+}
+
+h3,h4,h5,  span {
+  letter-spacing: 0.03em;
+}
+
+a {
+  text-decoration: none;
+}

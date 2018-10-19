@@ -1,0 +1,13 @@
+-var imagesFolder = self.settings.imagesFolder
+-var ext = picture.ext ? picture.ext : 'png'
+-var pictureName =(picture.name === "get_it_from_mocks_:3.jpg" ? 'bitmap' : picture.name);
+-var picturePath = `${imagesFolder}${pictureName}@1x.${ext}`
+-var x1 = `${imagesFolder }${pictureName}@1x.${ext} 1x`
+-var x2 = picture.x >= 2 ? `${imagesFolder }${pictureName}@2x.${ext} 2x` : null
+-var x3 = picture.x>= 3 ? `${imagesFolder }${pictureName}@3x.${ext} 3x` : null
+
+-var srcSet = [x1,x2,x3].filter(function(x) { return !!x }).join(',');
+if picture.custom
+    img(src=imagesFolder + picture.name alt=picture.name)
+else
+    img(src=picturePath alt=picture.name srcset=srcSet)

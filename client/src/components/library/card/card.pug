@@ -1,0 +1,39 @@
+-var sizeClass = { s: 'size-small', m: 'size-medium', l: 'size-large' }
+-var whiteIcon = card.type === 'critical'
+-var currentSize = sizeClass[card.size];
+
+div.card(class=`${currentSize} card--${card.type}`)
+    +card_buttons(whiteIcon)
+    div.card_header
+        div.card_header__icon
+            +svg(card.icon, whiteIcon)
+        div.card_header__title
+            h3=card.title
+    div.card_target
+        div.card_target__source=card.source
+        div.card_target__time=card.time
+    if(card.description)
+        div.card_description
+            div.card_description_text=card.description
+            if(card.data && card.data.image)
+                div.card_data.card_data_image
+                    +picture({name: card.data.image, x: 3, ext: 'jpg'})
+                +touch-elements()
+
+            if(card.data && card.data.type && card.data.type === 'graph')
+                div.card_data.card_data_graph
+                    +graph
+
+            if(card.data && card.data.temperature && card.data.humidity)
+                div.card_data.card_data_microclimate
+                    +microclimate(card.data)
+
+            if(card.data && card.data.volume)
+                div.card_data.card_data_player
+                    +player(card.data)
+
+            if(card.data && card.data.buttons)
+                div.card_data.card_data_buttons
+                    +buttons(card.data.buttons)
+
+
