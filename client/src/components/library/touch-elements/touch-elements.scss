@@ -1,0 +1,19 @@
+
+.touch_elements {
+  @extend .card_target;
+  display: none;
+  justify-content: space-between;
+  margin-bottom: 0 !important;
+  flex-wrap: wrap;
+}
+
+.touch_block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.touch_element {
+
+}
