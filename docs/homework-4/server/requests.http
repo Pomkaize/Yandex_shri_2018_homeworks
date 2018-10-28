@@ -1,0 +1,87 @@
+### bad request 404 error
+POST http://localhost:8000/bad/request
+
+### /status request
+POST http://localhost:8000/status
+
+### api/events request all required event types
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["info", "critical"]
+}
+
+### api/events certain event type
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+"type": ["critical"]
+}
+
+### api/events certain event type
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["info"]
+}
+
+### api/events request with bad param "type" (error)
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["critical", "error"]
+}
+### @from - required field in pagination params
+### @count - optional. if there aren't required count events respond error
+### pagination request respond all cards from certain card position
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["info", "critical"],
+  "pagination": {
+    "from": 9
+  }
+}
+
+### pagination request events certain count from certain position
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["critical", "info"],
+  "pagination": {
+    "from": 1,
+    "count": 1
+  }
+}
+
+### pagination request events certain count from certain position
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["critical"],
+  "pagination": {
+    "from": 1,
+    "count": 1
+  }
+}
+
+### pagination request events certain count from certain position (error)
+POST http://localhost:8000/api/events
+Content-Type: application/json
+
+{
+  "type": ["critical", "info"],
+  "pagination": {
+    "from": 11,
+    "count": 3
+  }
+}
+
+###

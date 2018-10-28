@@ -1,0 +1,10 @@
+{
+  "name": "homework-4",
+  "version": "",
+  "scripts": {
+    "start server": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

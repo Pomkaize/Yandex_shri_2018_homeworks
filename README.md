@@ -1,2 +1,5 @@
-## Репозиторий домашних работ ШРИ-2018
+## Репозиторий домашних работ ШРИ-2018 [Главная](https://pomkaize.github.io/shri-homework/homework-1/index.html)
 ### 1. Адаптивная верстка [Репо](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-1) [Демо](https://pomkaize.github.io/shri-homework/homework-1/index.html)
+### 2. Тач события [Репо](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-2) [Демо](https://pomkaize.github.io/shri-homework/homework-2/index.html)
+### 3. Мультимедиа [Репо](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-3) [Демо](https://pomkaize.github.io/shri-homework/homework-3/pages/videostreams.html)
+### 4. Сервер Node.js [Репо](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-4)
