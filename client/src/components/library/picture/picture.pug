@@ -8,6 +8,6 @@
 
 -var srcSet = [x1,x2,x3].filter(function(x) { return !!x }).join(',');
 if picture.custom
-    img(src=imagesFolder + picture.name alt=picture.name)
+    img(src=imagesFolder + picture.name alt=picture.name draggable='false' touch-action="none")
 else
-    img(src=picturePath alt=picture.name srcset=srcSet)
+    img(src=picturePath alt=picture.name srcset=srcSet draggable='false' touch-action="none")

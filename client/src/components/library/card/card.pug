@@ -16,7 +16,7 @@ div.card(class=`${currentSize} card--${card.type}`)
         div.card_description
             div.card_description_text=card.description
             if(card.data && card.data.image)
-                div.card_data.card_data_image
+                div.card_data.card_data_image#touch-image
                     +picture({name: card.data.image, x: 3, ext: 'jpg'})
                 +touch-elements()
 

@@ -26,15 +26,15 @@ let paths = {
         styles: {
             src: ['src/global/styles/service/_variables.scss', 'src/global/styles/*/*.scss', 'src/global/styles/index.scss', 'src/components/*/*/*.scss',],
             tempDir: 'src/global/styles/temp',
-            dir: '../docs/homework-1/',
+            dir: '../docs/homework-2/',
         },
         scripts: {
             src: ['src/global/scripts/vendor/*.js','src/global/scripts/index.js','src/components/*/*/*.js'],
-            dir: '../docs/homework-1/'
+            dir: '../docs/homework-2/'
         },
         index: {
             src: ['src/global/index.pug','src/components/**/*.pug', './config.js','./events.json'],
-            dir: '../docs/homework-1/'
+            dir: '../docs/homework-2/'
         },
 };
 
