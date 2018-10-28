@@ -307,5 +307,6 @@ let options = {
   vMove: '#vMove',
   hMove: '#hMove'
 };
-
-new ImageTouchEvents(image, options);
+if(image) {
+  new ImageTouchEvents(image, options);
+}

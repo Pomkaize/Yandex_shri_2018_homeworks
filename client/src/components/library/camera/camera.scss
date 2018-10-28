@@ -1,0 +1,119 @@
+.cameras_content {
+  margin-top: 64px;
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+  overflow: hidden;
+}
+.camera {
+  grid-column: span 2;
+  box-sizing: border-box;
+  cursor: pointer;
+
+}
+.opened {
+  position: relative;
+  z-index: 3;
+}
+.camera_container {
+  overflow: hidden;
+  transform-origin: center;
+  width: 100%;
+  will-change: transform;
+  height: 100%;
+  background-color: wheat;
+}
+
+.camera_controllers {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  height: 100%;
+  z-index: 4;
+  width: 100%;
+  padding: 3px 15px;
+  top:0;
+  left: 0;
+}
+
+.camera_controllers--opened {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.camera_controller {
+  padding: 5px;
+  color:inherit;
+  display: flex;
+  align-items: center;
+  background-color: rgba(83, 84, 78, 0.36);
+}
+.camera_top_buttons {
+  width: 100%;
+  position: relative;
+  top:5px;
+  color:inherit;
+  padding: 0 15px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.camera_bottom_buttons {
+  margin-top: auto;
+  margin-bottom: 15px;
+  color: inherit;
+  align-items: flex-end;
+  width: 100%;
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-between;
+}
+
+.camera_button {
+  color:inherit;
+  padding: 3px;
+  background-color: rgba(83, 84, 78, 0.36);
+}
+
+.controller_text {
+  color:inherit;
+}
+
+.analyzer {
+  min-width: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: height 0.1s ease;
+  height: 20px;
+  margin-right: 10px;
+  background-color: rgba(185, 186, 175, 0.81);
+}
+
+@include for-custom-width-from-to(0, 1000px) {
+  .camera_top_buttons {
+    flex-direction: column;
+  }
+  .camera_bottom_buttons {
+    justify-content: center;
+  }
+}
+
+@include for-custom-width-from-to(0, 600px) {
+  .cameras_content {
+    grid-auto-rows: 240px;
+  }
+  .camera_top_buttons {
+    margin-top: 10px;
+  }
+  .controller_text {
+    display: none;
+  }
+}

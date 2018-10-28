@@ -31,6 +31,13 @@ mixin button(button)
 mixin touch-elements()
     include touch-elements/touch-elements
 
+mixin camera(camera)
+    include camera/camera
+
+mixin cameras(cameras)
+    each camera in cameras
+        +camera(camera)
+
 mixin cards(cards)
     each card in cards
         +card(card)

@@ -1,0 +1,14 @@
+div.camera
+    div.camera_container
+        video.video(id=('camera-' + camera.id)).initial
+        div.camera_controllers
+            div.camera_top_buttons
+                div.camera_controller
+                    div.controller_text Яркость &nbsp;
+                    input.bright(type="range")
+                div.camera_controller
+                    div.controller_text Контраст &nbsp;
+                    input.contrast(type="range")
+            div.camera_bottom_buttons
+                div.analyzer
+                div.camera_button Вернуться

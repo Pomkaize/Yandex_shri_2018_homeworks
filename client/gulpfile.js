@@ -26,16 +26,20 @@ let paths = {
         styles: {
             src: ['src/global/styles/service/_variables.scss', 'src/global/styles/*/*.scss', 'src/global/styles/index.scss', 'src/components/*/*/*.scss',],
             tempDir: 'src/global/styles/temp',
-            dir: '../docs/homework-2/',
+            dir: '../docs/homework-3/',
         },
         scripts: {
             src: ['src/global/scripts/vendor/*.js','src/global/scripts/index.js','src/components/*/*/*.js'],
-            dir: '../docs/homework-2/'
+            dir: '../docs/homework-3/'
         },
         index: {
             src: ['src/global/index.pug','src/components/**/*.pug', './config.js','./events.json'],
-            dir: '../docs/homework-2/'
+            dir: '../docs/homework-3/'
         },
+        videostreams: {
+          src: ['src/global/pages/videostreams.pug', 'src/components/**/*.pug', './config.js'],
+          dir: '../docs/homework-3/pages/'
+        }
 };
 
 /*  styles tasks */
@@ -100,6 +104,23 @@ gulp.task('index-watch', ['index'], function (done) {
     done();
 });
 
+gulp.task('videostreams', function buildVideostreams() {
+  let locals =  require('./config.js');
+  return gulp.src(paths.videostreams.src[0])
+    .pipe(plumber(plumberNotifyConfig))
+    .pipe(pug({
+      self: true,
+      locals: locals,
+      pretty: true
+    }))
+    .pipe(gulp.dest(paths.videostreams.dir))
+});
+
+gulp.task('videostreams-watch', ['videostreams'], function (done) {
+  browserSync.reload();
+  done();
+});
+
 /* scripts tasks */
 gulp.task('scripts', function scripts() {
     return gulp.src(paths.scripts.src)
@@ -126,7 +147,7 @@ gulp.task('scripts-watch', ['scripts'], function (done) {
 
 
 /* general watch task */
-gulp.task('watch', ['scripts','styles','index'], function () {
+gulp.task('watch', ['scripts','styles','videostreams','index'], function () {
 
     browserSync.init({
         server: {
@@ -137,6 +158,7 @@ gulp.task('watch', ['scripts','styles','index'], function () {
     gulp.watch(paths.scripts.src, ['scripts-watch']);
     gulp.watch(paths.styles.src, ['styles-watch']);
     gulp.watch(paths.index.src, ['index-watch']);
+    gulp.watch(paths.videostreams.src, ['videostreams-watch']);
 });
 
 gulp.task('compressImages', () =>
