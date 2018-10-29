@@ -3,3 +3,4 @@ node_modules/
 .sass-cache
 .debug
 client/debug\.log
+debug.log

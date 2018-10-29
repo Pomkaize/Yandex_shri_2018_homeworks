@@ -11,6 +11,7 @@ let prefixer = require('gulp-autoprefixer');
 let uglify = require('gulp-uglify');
 let babel = require('gulp-babel');
 let imagemin = require('gulp-imagemin');
+var ts = require('gulp-typescript');
 
 let plumberNotifyConfig = { errorHandler: function(err) {
         console.log(err);
@@ -20,6 +21,8 @@ let plumberNotifyConfig = { errorHandler: function(err) {
             message:  err.toString()
         });
     }};
+
+let tsProject = ts.createProject('tsconfig.json', { noImplicitAny: true });
 
 /* project paths */
 let paths = {
@@ -39,7 +42,11 @@ let paths = {
         videostreams: {
           src: ['src/global/pages/videostreams.pug', 'src/components/**/*.pug', './config.js'],
           dir: '../docs/homework-3/pages/'
-        }
+        },
+        typeScripts: {
+          src: ['src/global/scripts/vendor/*.ts','src/global/scripts/index.ts','src/components/*/*/*.ts'],
+          dir: '../../temp.js'
+        },
 };
 
 /*  styles tasks */
@@ -140,6 +147,12 @@ gulp.task('build scripts', function scripts() {
         .pipe(gulp.dest(paths.scripts.dir))
 });
 
+gulp.task('typescript', function() {
+  return tsProject.src()
+    .pipe(tsProject())
+    .js.pipe(gulp.dest("dist"));
+});
+
 gulp.task('scripts-watch', ['scripts'], function (done) {
     browserSync.reload();
     done();
@@ -158,7 +171,6 @@ gulp.task('watch', ['scripts','styles','videostreams','index'], function () {
     gulp.watch(paths.scripts.src, ['scripts-watch']);
     gulp.watch(paths.styles.src, ['styles-watch']);
     gulp.watch(paths.index.src, ['index-watch']);
-    gulp.watch(paths.videostreams.src, ['videostreams-watch']);
 });
 
 gulp.task('compressImages', () =>

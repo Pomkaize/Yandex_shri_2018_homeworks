@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "../node_modules"
+  ],
+  "files": [
+    "./src/components/general/header/header.ts",
+    "./src/components/library/camera/camera.ts",
+    "./src/components/library/card/card.ts",
+    "./src/components/library/card/card.ts",
+    "./src/components/library/menu/menu.ts",
+    "./src/components/library/touch-elements/touch-elements.ts",
+    "./src/global/scripts/index.ts"
+  ]
+}
