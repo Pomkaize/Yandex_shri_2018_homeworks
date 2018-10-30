@@ -1,12 +1,66 @@
 interface Options {
-
+    zoom: string;
+    bright: string;
+    vMove: string;
+    hMove: string
 }
 
+interface Output {
+    zoom: HTMLElement;
+    bright: HTMLElement;
+    vMove: HTMLElement;
+    hMove: HTMLElement
+}
+
+interface State {
+    maxScrollX: number;
+    maxScrollY: number;
+    width: number;
+    height: number;
+    startX: number;
+    startY: number;
+    prevX: number;
+    prevY: number;
+    currentTouchAction: null|string;
+    currentBgFilter: number;
+    zoomCurrent: number;
+    zoomMax: number;
+    zoomMin: number
+}
+
+interface Trigger {
+    [key:string]:(value:number)=>void
+}
+
+interface Point {
+    prevX: number,
+    prevY: number,
+    startX: number,
+    startY: number,
+    prevTs: number,
+}
+
+interface TouchParams {
+    detX: number,
+    detY: number,
+    currentPoint: Point,
+    secondPoint: Point|undefined,
+    newPoint: Point
+}
 
 class ImageTouchEvents {
+    private image: HTMLImageElement;
+    private parent: HTMLElement;
+    private activePoints!: { [key:number]: Point };
+    private options!: State;
+    private output!: Output;
+    private triggers!: Trigger;
 
   constructor(image:HTMLImageElement, options:Options) {
     this.image = image;
+    if(!image.parentElement) {
+      throw new Error("Can't find parent for image")
+    }
     this.parent = image.parentElement;
 
     this.image.onload = () => {
@@ -16,7 +70,7 @@ class ImageTouchEvents {
     };
   }
 
-  initListeners() {
+  initListeners():void {
     this.image.addEventListener('pointerdown', (e) => {
       this.image.setPointerCapture(e.pointerId);
       this.addTouchPointer(e)
@@ -35,7 +89,7 @@ class ImageTouchEvents {
   /* this method init state params  */
   initState() {
 
-    const initParams = this.image.getBoundingClientRect();
+    const initParams:ClientRect = this.image.getBoundingClientRect();
     const that = this;
 
     this.activePoints = {};
@@ -59,20 +113,29 @@ class ImageTouchEvents {
 
   }
 
-  initOutput(options) {
+  setIfExist(selector: string): HTMLElement {
+    let element: HTMLElement | null = document.querySelector(selector);
+    if(!element) {
+      throw Error(`Can't find element by selector ${selector} `)
+    } else {
+      return element
+    }
+  }
+
+  initOutput(options:Options):void {
 
     const that = this;
 
     this.output = {
-      zoom: document.querySelectorAll(options.zoom)[0],
-      bright:  document.querySelectorAll(options.bright)[0],
-      vMove:  document.querySelectorAll(options.vMove)[0],
-      hMove:  document.querySelectorAll(options.hMove)[0],
+      zoom: this.setIfExist(options.zoom),
+      bright:  this.setIfExist(options.bright),
+      vMove:  this.setIfExist(options.vMove),
+      hMove:  this.setIfExist(options.hMove),
     };
 
-    function setValueToContainer(container, delimiter) {
-      return function(value) {
-        return container.innerHTML = `${Math.abs(Math.round(value/delimiter*100))}%`;
+    function setValueToContainer(container: HTMLElement, delimiter:number) {
+      return function(value: number):void {
+        container.innerHTML = `${Math.abs(Math.round(value/delimiter*100))}%`;
       };
     }
 
@@ -85,20 +148,20 @@ class ImageTouchEvents {
   }
 
 
-  setOption(option, value) {
+  setOption(option:keyof State, value:number|null|string) {
     this.options[option] = value;
-    if(this.triggers[option]) {
+    if(this.triggers[option] && value && typeof value !== "string") {
       this.triggers[option](value);
     }
   }
 
-  getOption(option) {
+  getOption<T extends keyof State>(option: T): State[T] {
     return this.options[option];
   }
   /* this method handle pointerup action */
-  addTouchPointer(e) {
+  addTouchPointer(e: PointerEvent):void {
 
-    let pointCount = Object.keys(this.activePoints).length;
+    let pointCount:number = Object.keys(this.activePoints).length;
 
     if(pointCount > 1) {
       return
@@ -112,48 +175,49 @@ class ImageTouchEvents {
     };
   };
 
-  removeTouchPointer(e) {
+  removeTouchPointer(e: PointerEvent):void {
     this.setOption('currentTouchAction' , null);
     delete this.activePoints[e.pointerId];
   };
   /* this method calculate core params  */
-  calculateTouchCore(e) {
+  calculateTouchCore(e: PointerEvent): void {
     if (!this.activePoints[e.pointerId]) {
       return;
     }
 
-    const currentPoint = this.activePoints[e.pointerId];
+    const currentPoint: Point = this.activePoints[e.pointerId];
     const that = this;
 
     /* throttling */
-    const ts = Date.now(),
+    const ts: number = Date.now(),
       run = ts - currentPoint.prevTs > 4;
 
     if(!run) {
       return;
     }
 
-    const {x, y} = e;
-    const top = this.getOption('prevY');
-    const left = this.getOption('prevX');
+    const x:number = e.x;
+    const y:number = e.y;
+    const top:number = this.getOption('prevY');
+    const left:number = this.getOption('prevX');
 
-    const touchParams = {
+    const touchParams: TouchParams = {
       detX: x - currentPoint.prevX,
       detY: y - currentPoint.prevY,
       currentPoint: currentPoint,
       secondPoint: that.getSecondPoint(e.pointerId),
-      newPoint: { prevY: y, prevX: x, prevTs: ts }
+      newPoint: { prevY: y, prevX: x, prevTs: ts, startX:x, startY:y }
     };
 
-    const updateState = () => {
+    const updateState:()=>void = () => {
       this.activePoints[e.pointerId] = touchParams.newPoint;
     };
 
-    const newY = (top + touchParams.detY);
-    const newX = (left + touchParams.detX);
+    const newY:number = (top + touchParams.detY);
+    const newX:number = (left + touchParams.detX);
 
 
-    let action = this.actionResolver(touchParams);
+    let action: string|null = this.actionResolver(touchParams);
 
     if(action === null)
     {
@@ -167,7 +231,7 @@ class ImageTouchEvents {
         updateState();}
         break;
       case 'pinch' : { this.handlePinch(touchParams.currentPoint, touchParams.newPoint,
-        touchParams.secondPoint); updateState(); }
+        touchParams.secondPoint!); updateState(); }
         break;
       case 'rotate' : { this.handleRotate(touchParams.detX, touchParams.detY) }
       default: {
@@ -176,9 +240,9 @@ class ImageTouchEvents {
     }
   }
   /* this method calculate ange between new and old points */
-  calculateAngle(pA, pAn, pB) {
+  calculateAngle(pA:Point, pAn:Point, pB:Point):number {
 
-    let cosA, aV, bV;
+    let cosA:number, aV:{x:number, y:number}, bV:{x:number, y:number};
 
     if(!(pA.prevX - pAn.prevX + pA.prevY - pA.prevY))
     {
@@ -203,7 +267,7 @@ class ImageTouchEvents {
     return Math.acos(cosA) * 180 / Math.PI;
   };
   /* this method define current action */
-  actionResolver(options) {
+  actionResolver(options:TouchParams):string|null {
     let currentAction = this.getOption('currentTouchAction');
 
     let touchCount = Object.keys(this.activePoints).length;
@@ -217,9 +281,9 @@ class ImageTouchEvents {
       this.setOption('currentTouchAction', 'swipe');
       currentAction = 'swipe'
       /* when 2 finders on the device we not updating x and y, to collect detX and detY to define angle*/
-    } else if(touchCount === 2 && ((Math.abs(options.detX) + Math.abs(options.detY) > 30)) ) {
+    } else if(touchCount === 2 && ((Math.abs(options.detX) + Math.abs(options.detY) > 30) && options.secondPoint) ) {
 
-      let angle = this.calculateAngle(options.currentPoint, options.newPoint, options.secondPoint);
+      let angle:number = this.calculateAngle(options.currentPoint, options.newPoint, options.secondPoint);
       /* experimental value */
       if(Math.abs(angle) < 7) {
         this.setOption('currentTouchAction', 'pinch');
@@ -233,7 +297,7 @@ class ImageTouchEvents {
     return currentAction;
   }
 
-  getSecondPoint(firstPointId) {
+  getSecondPoint(firstPointId:number):Point|undefined {
     for (let pointId in this.activePoints) {
       if(this.activePoints.hasOwnProperty(pointId)) {
         if(Number(pointId) !== Number(firstPointId))
@@ -244,7 +308,7 @@ class ImageTouchEvents {
     }
   };
 
-  handleSwipe(newX, newY, detY) {
+  handleSwipe(newX:number, newY:number, detY:number) {
 
     /* horizontal parent block boundaries*/
     if(newX <= 0 && Math.abs(newX) <= this.getOption('maxScrollX')) {
@@ -260,17 +324,17 @@ class ImageTouchEvents {
     }
   }
 
-  handlePinch(currentPoint, newPoint, secondPoint) {
+  handlePinch(currentPoint:Point, newPoint:Point, secondPoint:Point) {
 
-    const fromVector = {
-      x: currentPoint.prevX - secondPoint.prevX,
-      y: currentPoint.prevY - secondPoint.prevY
-    };
+      const fromVector = {
+          x: currentPoint.prevX - secondPoint.prevX,
+          y: currentPoint.prevY - secondPoint.prevY
+      };
 
-    const toVector = {
-      x: newPoint.prevX - secondPoint.prevX,
-      y: newPoint.prevY - secondPoint.prevY
-    };
+      const toVector = {
+          x: newPoint.prevX - secondPoint.prevX,
+          y: newPoint.prevY - secondPoint.prevY
+      };
 
     const lengthFrom = Math.sqrt(Math.pow(fromVector.x, 2) + Math.pow(fromVector.y, 2));
     const lengthTo = Math.sqrt(Math.pow(toVector.x, 2) + Math.pow(toVector.y,2));
@@ -285,10 +349,10 @@ class ImageTouchEvents {
     }
 
     this.setOption('zoomCurrent', zoom);
-    this.image.style.zoom = zoom
+    this.image.style.zoom = `${zoom}%`
   }
 
-  handleRotate(detX, detY) {
+  handleRotate(detX:number, detY:number) {
 
     let angle = Math.atan(detX/detY) * 180 / Math.PI;
 
@@ -299,12 +363,12 @@ class ImageTouchEvents {
       bgFilter = Math.min(100, this.getOption('currentBgFilter') + angle/15)
     }
     this.setOption('currentBgFilter', bgFilter);
-    image.style.filter = 'brightness(' + bgFilter + '%)';
+    this.image.style.filter = 'brightness(' + bgFilter + '%)';
   };
 
 }
 
-let image = document.querySelectorAll('#touch-image > img')[0];
+let image = document.querySelectorAll('#touch-image > img')[0] as HTMLImageElement;
 
 let options = {
   bright: '#bright',
@@ -312,6 +376,7 @@ let options = {
   vMove: '#vMove',
   hMove: '#hMove'
 };
+
 if(image) {
   new ImageTouchEvents(image, options);
 }

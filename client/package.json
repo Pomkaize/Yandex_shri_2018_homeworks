@@ -4,6 +4,7 @@
 	"description": "homework-1",
 	"dependencies": {},
 	"devDependencies": {
+		"@types/hls.js": "^0.10.2",
 		"babel-core": "^6.26.3",
 		"babel-preset-es2015": "^6.24.1",
 		"browser-sync": "^2.24.6",

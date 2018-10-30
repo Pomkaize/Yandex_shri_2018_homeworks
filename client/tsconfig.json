@@ -1,21 +1,24 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
+    "module": "es6",
+    "target": "es6",
     "sourceMap": true,
     "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": ["hls.js"]
   },
   "exclude": [
     "../node_modules"
   ],
   "files": [
+    "./src/global/scripts/index.ts",
     "./src/components/general/header/header.ts",
     "./src/components/library/camera/camera.ts",
     "./src/components/library/card/card.ts",
-    "./src/components/library/card/card.ts",
     "./src/components/library/menu/menu.ts",
-    "./src/components/library/touch-elements/touch-elements.ts",
-    "./src/global/scripts/index.ts"
+    "./src/components/library/touch-elements/touch-elements.ts"
   ]
 }

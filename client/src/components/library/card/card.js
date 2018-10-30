@@ -1,4 +1,7 @@
-if(globalHelper.checkTouchDevice()) {
+"use strict";
+if (globalHelper.checkTouchDevice()) {
     const touchElements = document.querySelector('.touch_elements');
-    touchElements.style.display = 'flex'
+    if (touchElements) {
+        touchElements.style.display = 'flex';
+    }
 }

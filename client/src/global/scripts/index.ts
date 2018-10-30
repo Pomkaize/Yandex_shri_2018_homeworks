@@ -1,11 +1,12 @@
-interface globalHelper {
+interface GlobalHelper {
     getViewPortSizes():[number, number];
     checkTouchDevice():boolean,
     clampTitles():void
 }
 declare function $clamp(text: Element, object: object):void
 
-const globalHelper:globalHelper = (function Helper() {
+
+const globalHelper:GlobalHelper = (function Helper() {
 
     function getViewPortSizes():[number, number] {
         const w:number = Math.max(document.documentElement!.clientWidth, window.innerWidth || 0);

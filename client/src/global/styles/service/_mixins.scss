@@ -28,7 +28,7 @@
 @mixin background($name,$position:0 0,$repeat: no-repeat)
 {
   background: {
-    image: url("../images/compressed/#{$name}@1x.png");
+    image: url("./../../images/compressed/#{$name}@1x.png");
     position: $position;
     repeat: $repeat;
   }

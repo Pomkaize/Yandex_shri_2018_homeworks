@@ -1,3 +1,4 @@
+
 interface ContainerParams {
     left:number,
     top:number,
@@ -21,11 +22,12 @@ interface Constructable<T> {
     new() : T;
 }
 
-interface Window
-{
-    AudioContext: Constructable<AudioContext>;
-    webkitAudioContext: Constructable<AudioContext>
+
+interface Window {
+    AudioContext: typeof AudioContext;
+    webkitAudioContext: typeof AudioContext;
 }
+
 
 interface InputRangeEvent extends Event {
     target: HTMLInputElement

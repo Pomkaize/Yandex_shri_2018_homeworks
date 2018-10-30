@@ -1,9 +1,8 @@
 function toggleHeader(): void {
     if(globalHelper.getViewPortSizes()[0] < 630)
     {
-        var menu = document.querySelectorAll('.menu_list_header')[0];
+        const menu:HTMLElement = document.querySelectorAll('.menu_list_header')[0] as HTMLElement;
         if(menu.classList.contains('animation_slide_on')) {
-
             menu.classList.remove('animation_slide_on');
             menu.classList.add('animation_slide_off');
             setTimeout(function() {
@@ -15,4 +14,8 @@ function toggleHeader(): void {
         }
 
     }
+}
+const menuContainer  = document.querySelector('.header__container');
+if (menuContainer) {
+    menuContainer.addEventListener('click', toggleHeader);
 }

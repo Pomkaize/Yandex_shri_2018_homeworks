@@ -150,7 +150,7 @@ gulp.task('build scripts', function scripts() {
 gulp.task('typescript', function() {
   return tsProject.src()
     .pipe(tsProject())
-    .js.pipe(gulp.dest("dist"));
+    .js.pipe(gulp.dest("./src/"));
 });
 
 gulp.task('scripts-watch', ['scripts'], function (done) {
