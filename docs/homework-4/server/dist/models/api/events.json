@@ -81,11 +81,11 @@
             "time": "18:30, Сегодня",
             "description": "Установлен климатический режим «Фиджи»",
             "icon": "thermal",
-            "size": "m",
             "data": {
                 "temperature": 24,
                 "humidity": 80
-            }
+            },
+            "size": "m"
         },
         {
             "type": "critical",
@@ -103,7 +103,6 @@
             "time": "18:16, Сегодня",
             "description": "Сейчас проигрывается:",
             "icon": "music",
-            "size": "m",
             "data": {
                 "albumcover": "https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000",
                 "artist": "Florence & The Machine",
@@ -112,7 +111,9 @@
                     "length": "4:31"
                 },
                 "volume": 80
-            }
+            },
+            "size": "m"
+
         },
         {
             "type": "info",
@@ -121,10 +122,11 @@
             "time": "17:23, Сегодня",
             "description": "Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?",
             "icon": "fridge",
-            "size": "m",
             "data": {
                 "buttons": ["Да", "Нет"]
-            }
+            },
+            "size": "m"
+
         },
         {
             "type": "info",

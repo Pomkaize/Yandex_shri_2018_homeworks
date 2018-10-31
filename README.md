@@ -3,4 +3,4 @@
 ### 2. Тач события [Описание](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-2) [Демо](https://pomkaize.github.io/shri-homework/homework-2/index.html)
 ### 3. Мультимедиа [Описание](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-3) [Демо](https://pomkaize.github.io/shri-homework/homework-3/pages/videostreams.html)
 ### 4. Сервер Node.js [Описание](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-4)
-### 7. Типизация (в процессе выполнения) [Описание](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-7)
+### 7. Типизация [Описание](https://github.com/Pomkaize/shri-homework/tree/master/docs/homework-7)

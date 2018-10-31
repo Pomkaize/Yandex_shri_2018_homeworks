@@ -1,11 +1,11 @@
 ### bad request 404 error
-POST http://localhost:8000/bad/request
+POST http://localhost:8080/bad/request
 
 ### /status request
-POST http://localhost:8000/status
+POST http://localhost:8080/status
 
 ### api/events request all required event types
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### api/events certain event type
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### api/events certain event type
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ### api/events request with bad param "type" (error)
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 ### @from - required field in pagination params
 ### @count - optional. if there aren't required count events respond error
 ### pagination request respond all cards from certain card position
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -49,7 +49,7 @@ Content-Type: application/json
 }
 
 ### pagination request events certain count from certain position
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -61,7 +61,7 @@ Content-Type: application/json
 }
 
 ### pagination request events certain count from certain position
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
@@ -73,7 +73,7 @@ Content-Type: application/json
 }
 
 ### pagination request events certain count from certain position (error)
-POST http://localhost:8000/api/events
+POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {

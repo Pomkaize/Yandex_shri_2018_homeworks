@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "outDir": "./server/dist",
+    "lib": [
+      "es2016"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": ["node","express"]
+  },
+  "exclude": [
+    "../node_modules"
+  ],
+  "include": [
+    "server/**/*.ts"
+  ]
+}
