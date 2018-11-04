@@ -1,0 +1,11 @@
+{
+  "name": "homework-4",
+  "version": "",
+  "scripts": {
+    "watchJS": "tsc --p ./tsconfig.json --watch",
+    "run": "node ./dist/example.js"
+  },
+  "dependencies": {
+    "typescript": "^3.1.3"
+  }
+}
