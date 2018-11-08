@@ -1,3 +1,5 @@
+import {toggleHeader} from "../../general/header/header";
+
 const menuItems:NodeListOf<HTMLElement> = document.querySelectorAll('.menu_list_item_header');
       menuItems.forEach(function(menuItem) {
           menuItem.addEventListener('click', onMenuItemClick, true);

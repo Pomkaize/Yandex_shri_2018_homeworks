@@ -31,10 +31,6 @@ let paths = {
             tempDir: 'src/global/styles/temp',
             dir: '../docs/homework-8(client)/',
         },
-        scripts: {
-            src: ['src/global/scripts/vendor/*.js','src/global/scripts/index.js','src/components/*/*/*.js'],
-            dir: '../docs/homework-8(client)/',
-        },
         index: {
             src: ['src/global/index.pug','src/components/**/*.pug', './config.js','./events.json'],
             dir: '../docs/homework-8(client)/',
@@ -42,11 +38,7 @@ let paths = {
         videostreams: {
           src: ['src/global/pages/videostreams.pug', 'src/components/**/*.pug', './config.js'],
           dir: '../docs/homework-8(client)/',
-        },
-        typeScripts: {
-          src: ['src/global/scripts/vendor/*.ts','src/global/scripts/index.ts','src/components/*/*/*.ts'],
-          dir: '../../temp.js'
-        },
+        }
 };
 
 /*  styles tasks */
@@ -128,47 +120,15 @@ gulp.task('videostreams-watch', ['videostreams'], function (done) {
   done();
 });
 
-/* scripts tasks */
-gulp.task('scripts', function scripts() {
-    return gulp.src(paths.scripts.src)
-        .pipe(plumber(plumberNotifyConfig))
-        .pipe(concat('scripts.js'))
-        .pipe(gulp.dest(paths.scripts.dir))
-});
-
-gulp.task('build scripts', function scripts() {
-    return gulp.src(paths.scripts.src)
-        .pipe(plumber(plumberNotifyConfig))
-        .pipe(concat('scripts.js'))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(uglify())
-        .pipe(gulp.dest(paths.scripts.dir))
-});
-
-gulp.task('typescript', function() {
-  return tsProject.src()
-    .pipe(tsProject())
-    .js.pipe(gulp.dest("./src/"));
-});
-
-gulp.task('scripts-watch', ['scripts'], function (done) {
-    browserSync.reload();
-    done();
-});
-
 
 /* general watch task */
-gulp.task('watch', ['scripts','styles','videostreams','index'], function () {
+gulp.task('watch', ['styles','videostreams','index'], function () {
 
     browserSync.init({
         server: {
             baseDir: "../docs"
         }
     });
-
-    gulp.watch(paths.scripts.src, ['scripts-watch']);
     gulp.watch(paths.styles.src, ['styles-watch']);
     gulp.watch(paths.index.src, ['index-watch']);
 });

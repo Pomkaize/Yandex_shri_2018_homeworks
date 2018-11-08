@@ -1,4 +1,5 @@
-function toggleHeader(): void {
+import {globalHelper} from "../../../global/scripts/globalHelper";
+export function toggleHeader(): void {
     if(globalHelper.getViewPortSizes()[0] < 630)
     {
         const menu:HTMLElement = document.querySelectorAll('.menu_list_header')[0] as HTMLElement;
