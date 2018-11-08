@@ -1,7 +1,8 @@
 import {iStoreHandler, StoreHandler, storeHandlers} from "./StoreHandler"
 import {iMultipleDispatch, MultipleDispatch, multipleDispatchOptions} from "./MultipleDispatch";
+import {iStoreState} from "../components/library/player/player";
 
-export type view = (state: iState)=>void
+export type view = (state: iState | iStoreState)=>void
 export type done = (state: iState)=>iState
 
 export interface iDispatch {

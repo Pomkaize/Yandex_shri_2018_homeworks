@@ -1,8 +1,8 @@
 -var sizeClass = { s: 'size-small', m: 'size-medium', l: 'size-large' }
 -var whiteIcon = card.type === 'critical'
 -var currentSize = sizeClass[card.size];
-
-div.card(class=`${currentSize} card--${card.type}`)
+-var musicCardClass = card.icon === 'music' ? 'card--music' : ''
+div.card(class=`${currentSize} card--${card.type} ${musicCardClass}`)
     +card_buttons(whiteIcon)
     div.card_header
         div.card_header__icon

@@ -1,4 +1,19 @@
-## Восьмое задание. Архитектура (в процессе, фреймворк написан, применяю в проекте)
+## Восьмое задание. Архитектура
+
+### Интеракцивный элемент в проекте - музыкальный плеер, работает с внутренним сервером
+#### Запуск
+Сервер
+1) в директории ./docs/homework-4/ npm run start <br/>
+И можно смотреть [Демо](https://pomkaize.github.io/shri-homework/homework-8(client)/index.html)<br/>
+Или запустить клиент локлаьно
+2) в директории ./client npm run watch1 <br/>
+Чекаем на http://localhost:3000/
+Исходный [код](https://github.com/Pomkaize/shri-homework/tree/master/client/src/framework) фреймворка<br/>
+Исходный [код](https://github.com/Pomkaize/shri-homework/blob/master/client/src/components/library/player/player.ts) плеера <br/>
+Структура папок страдает, поправлю :)
+
+Добавил взаимодействие с сервером по JSON, чтобы получить информацию о новом треке, отрисовал результаты с прелоадером
+
 ### Описание flux-фреймворка
 #### Фреймворк состоит из 3 частей,
 1. Store.ts - содержит логику работы с хранилищем состояния
@@ -184,5 +199,3 @@ const getData = () => store.dispatch([
     }
 ])
 ```
-
-

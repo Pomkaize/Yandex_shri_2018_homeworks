@@ -7,7 +7,7 @@ module.exports = {
     settings: {
       title: 'Яндекс дом',
       copyright: "© 2001-2018 ООО «Яндекс»",
-      imagesFolder: '../../images/compressed/'  // path in build folder
+      imagesFolder: '../images/compressed/'  // path in build folder
     },
     header: {
       menu: [
