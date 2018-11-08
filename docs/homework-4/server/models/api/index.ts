@@ -1,4 +1,5 @@
 import {Events, events} from "./events";
+import {player} from "./player";
 
 export interface Api {
     events: Events
@@ -6,7 +7,8 @@ export interface Api {
 
 function apiInit() {
     return {
-        events: events
+        events: events,
+        player: player
     }
 }
 

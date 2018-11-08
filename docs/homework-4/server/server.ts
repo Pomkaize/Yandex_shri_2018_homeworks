@@ -1,5 +1,14 @@
 import * as express from 'express'
 import routes from './routes'
+import * as cors from "cors";
+
+const corsOptions = {
+    "origin": "*",
+    "allowedHeaders": "*",
+    "methods": "POST",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 200
+};
 
 export class Server {
     public app: express.Application;
@@ -16,6 +25,8 @@ export class Server {
     }
 
     config():void {
+        /* disable cors */
+        this.app.use(cors(corsOptions));
         /* parse json in requests */
         this.app.use(express.json());
         /* routes, global input point */

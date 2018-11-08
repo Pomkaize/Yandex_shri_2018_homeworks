@@ -2,6 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const routes_1 = require("./routes");
+const cors = require("cors");
+const corsOptions = {
+    "origin": "*",
+    "allowedHeaders": "*",
+    "methods": "POST",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 200
+};
 class Server {
     static bootstrap() {
         return new Server();
@@ -13,6 +21,8 @@ class Server {
         this.config();
     }
     config() {
+        /* disable cors */
+        this.app.use(cors(corsOptions));
         /* parse json in requests */
         this.app.use(express.json());
         /* routes, global input point */

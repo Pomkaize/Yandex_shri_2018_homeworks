@@ -1,0 +1,25 @@
+{
+    "tracks": {
+        "1": {
+           "id": 1,
+           "trackName": "Big God",
+           "bandName": "Florence & The Machine",
+           "image": "https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/100x100",
+           "length": 271
+        },
+        "2": {
+            "id": 2,
+            "trackName": "Chop Suey!",
+            "bandName": "System of A Down",
+            "image": "https://avatars.yandex.net/get-music-content/142001/5f909cfc.a.624758-3/50x50",
+            "length": 210
+        },
+        "3": {
+            "id": 3,
+            "trackName": "Toxicity!",
+            "bandName": "System of A Down",
+            "image": "https://avatars.yandex.net/get-music-content/142001/5f909cfc.a.624758-3/50x50",
+            "length": 221
+        }
+    }
+}
