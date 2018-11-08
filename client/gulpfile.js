@@ -29,19 +29,19 @@ let paths = {
         styles: {
             src: ['src/global/styles/service/_variables.scss', 'src/global/styles/*/*.scss', 'src/global/styles/index.scss', 'src/components/*/*/*.scss',],
             tempDir: 'src/global/styles/temp',
-            dir: '../docs/homework-3/',
+            dir: '../docs/homework-8(client)/',
         },
         scripts: {
             src: ['src/global/scripts/vendor/*.js','src/global/scripts/index.js','src/components/*/*/*.js'],
-            dir: '../docs/homework-3/'
+            dir: '../docs/homework-8(client)/',
         },
         index: {
             src: ['src/global/index.pug','src/components/**/*.pug', './config.js','./events.json'],
-            dir: '../docs/homework-3/'
+            dir: '../docs/homework-8(client)/',
         },
         videostreams: {
           src: ['src/global/pages/videostreams.pug', 'src/components/**/*.pug', './config.js'],
-          dir: '../docs/homework-3/pages/'
+          dir: '../docs/homework-8(client)/',
         },
         typeScripts: {
           src: ['src/global/scripts/vendor/*.ts','src/global/scripts/index.ts','src/components/*/*/*.ts'],

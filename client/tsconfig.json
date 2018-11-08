@@ -8,17 +8,19 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "types": ["hls.js"]
+    "types": ["hls.js", "node"]
   },
   "exclude": [
     "../node_modules"
   ],
+  "include": ["../docs/homework-8/framework/Store.ts"],
   "files": [
     "./src/global/scripts/index.ts",
     "./src/components/general/header/header.ts",
     "./src/components/library/camera/camera.ts",
     "./src/components/library/card/card.ts",
     "./src/components/library/menu/menu.ts",
-    "./src/components/library/touch-elements/touch-elements.ts"
+    "./src/components/library/touch-elements/touch-elements.ts",
+    "./src/components/library/player/player.ts"
   ]
 }
