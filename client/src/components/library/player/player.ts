@@ -1,5 +1,5 @@
 import {Store, iState, view} from "../../../framework/Store";
-import {iStoreHandler} from "../../../../../docs/homework-8/framework/StoreHandler";
+import {iStoreHandler} from "../../../framework/StoreHandler";
 
 
 interface currentTrack {
