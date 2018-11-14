@@ -1,0 +1,48 @@
+.Header {
+  border-bottom: 1px solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  padding: 17px 40px;
+  flex-wrap: wrap;
+}
+
+.Header-Logo {
+  margin: 11.5px 0;
+  width: 108px;
+}
+
+.Header-Nav {
+  margin-left: 20px;
+}
+
+.Header-NavMenu {
+  margin-top: 20px;
+}
+
+.Header-ShowMenuBtn {
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: -10px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .Header {
+    border-bottom: none;
+    padding: 20px 20px 0;
+  }
+
+  .Header-Nav {
+    order: 1;
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  .Header-NavMenu {
+    margin: 0;
+  }
+
+  .Header-ShowMenuBtn {
+    visibility: visible;
+  }
+}
+

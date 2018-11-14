@@ -1,0 +1,8 @@
+@import "../../../../global/styles/service/colors.scss";
+
+.Card_type_info {
+  background-color: $background;
+  &:hover {
+    background-color: $backgroundHovered;
+  }
+}

@@ -1,0 +1,44 @@
+.Footer {
+  border-top: 1px solid #F0F0F0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #858585;
+  padding: 0 3.1%;
+}
+
+.Footer-Links {
+  display: flex;
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.Footer-Item {
+  margin-right: 3%;
+}
+
+.Footer-ItemLink {
+  color: #858585;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 1800px) {
+  .Footer {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .Footer-ItemLink {
+    white-space: normal;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .Footer {
+    display: none;
+  }
+}

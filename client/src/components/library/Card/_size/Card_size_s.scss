@@ -1,0 +1,43 @@
+@import "../../../../global/styles/service/variables.scss";
+@import "../../../../global/styles/service/colors.scss";
+@import "../../../../global/styles/service/mixins.scss";
+
+.Card_size_s {
+  grid-row: span 1;
+  grid-column: span 1;
+  padding: $cardPaddingV $cardPaddingH 0 $cardPaddingV;
+}
+
+.Card-Target {
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 20px 0 24px 0;
+}
+.Card-Source {
+  margin-bottom: 20px;
+}
+.Card-Time {
+  margin: auto 0 0 0;
+}
+.Card-Description {
+  margin-bottom: 24px;
+  color: $black;
+}
+
+@include for-custom-width-from-to(0, 820px) {
+  .Card_size_s {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+
+@include for-phone-only {
+  .Card-Target {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 24px 0;
+  }
+  .Card-Source {
+    margin-bottom: 0;
+  }
+}

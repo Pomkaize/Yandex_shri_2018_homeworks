@@ -1,0 +1,39 @@
+@import "../../../global/styles/service/variables.scss";
+@import "../../../global/styles/service/colors.scss";
+@import "../../../global/styles/service/mixins.scss";
+
+/*.buttons {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+}*/
+/* .buttons {
+   margin-top: 24px;
+ }*/
+.Button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  height: 54px;
+  min-width: 132px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 19px;
+  color:$black;
+  background-color: $buttonBackground;
+  transition: box-shadow 0.2s ease;
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50);
+  }
+}
+
+@include for-phone-only {
+  .Button {
+    height: 44px;
+    min-width: 0;
+    width: 132px;
+  }
+}

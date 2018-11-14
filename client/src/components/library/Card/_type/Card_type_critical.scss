@@ -1,0 +1,35 @@
+@import "../../../../global/styles/service/colors.scss";
+@import "../../../../global/styles/service/variables.scss";
+
+.Card_type_critical {
+  background-color: $critical;
+  padding: $cardPaddingV 0 0 0 !important;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    .Card-Description {
+      background-color: $backgroundHovered;
+    }
+  }
+
+  .Card-Title {
+    color: white;
+  }
+
+  .Card-Description {
+    padding: 20px;
+    transition: background-color 0.2s ease;
+    background-color: #FAFAFA;
+    border-radius: 18px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+  .Card-Header, .Card-Target {
+    padding: 0 $cardPaddingH;
+  }
+
+  .Card-Source, .Card-Time, .Card-Title h3 {
+    color: $whiteText;
+  }
+}

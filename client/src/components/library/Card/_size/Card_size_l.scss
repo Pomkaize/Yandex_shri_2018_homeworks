@@ -1,0 +1,23 @@
+@import "../../../../global/styles/service/mixins.scss";
+@import "../../../../global/styles/service/variables.scss";
+.Card_size_l {
+  grid-row: span 3;
+  grid-column: span 3;
+}
+
+.Card-Description {
+  font-size: 23px;
+}
+
+@include for-custom-width-from-to(0, 820px) {
+  .Card_size_l {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+
+@include for-phone-only {
+  .Card-Description {
+    font-size: 18px;
+  }
+}
