@@ -5,13 +5,12 @@ import './NavMenu.scss';
 
 export const cnNavMenu = cn('NavMenu');
 
-export const NavMenu: React.SFC<IClassNameProps> = ({className}) => {
+export const NavMenu: React.FunctionComponent<IClassNameProps> = ({className}) => {
     const menuItems = [
         {id: 1, href: "/", title: "События"},
         {id: 2, href: "#", title: "Сводка"},
         {id: 3, href: "#", title: "Устройства"},
         {id: 4, href: "#", title: "Сценарии"},
-        {id: 5, href: "#", title: "Видеонаблюдение"},
     ];
 
     return (

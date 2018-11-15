@@ -33,7 +33,7 @@ export const CardData: React.FunctionComponent<iCardData> = (props) => {
                 {/* Buttons */}
                 {props.data && props.data.buttons && <div className={cnCardData('Buttons')}>
                     {props.data.buttons.map((button:string, index:number) => {
-                        return <BemButton active={index === 0}>{button}</BemButton>
+                        return <BemButton active={index === 0} key={index}>{button}</BemButton>
                     })}
                 </div>}
                 {props.data && props.data.volume && <div className={cnCardData('Player')} >

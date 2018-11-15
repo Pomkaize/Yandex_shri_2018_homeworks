@@ -33,6 +33,9 @@
 }
 
 @include for-phone-only {
+  .Card_size_s {
+    min-width: auto;
+  }
   .Card-Target {
     flex-direction: row;
     justify-content: space-between;
