@@ -1,0 +1,60 @@
+@import "../../../global/styles/service/variables.scss";
+@import "../../../global/styles/service/colors.scss";
+@import "../../../global/styles/service/mixins.scss";
+
+
+.CardData {
+  height: 100%;
+  display: flex;
+  padding-bottom: $cardPaddingH;
+  flex-direction: column;
+}
+
+.CardData-Image {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.CardData-ImageContent {
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius:20px;
+  max-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.CardData-Microclimate {
+  font-size: 19px;
+  margin-top: 22px;
+  display: flex;
+}
+
+.CardData-Temperature, .CardData-Humidity {
+  color: $black;
+}
+.CardData-Temperature {
+  margin-right: 52px;
+}
+
+
+.CardData-Buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+@include for-phone-only {
+  .CardData-Microclimate {
+    font-size: 14px;
+    justify-content: space-between;
+  }
+  .CardData-Temperature {
+    margin-right: 0;
+  }
+  .CardData-Buttons {
+    margin-top: 24px;
+  }
+}

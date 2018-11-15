@@ -6,6 +6,7 @@
   grid-row: span 1;
   grid-column: span 1;
   padding: $cardPaddingV $cardPaddingH 0 $cardPaddingV;
+  min-width: 330px;
 }
 
 .Card-Target {

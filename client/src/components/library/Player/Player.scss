@@ -1,0 +1,265 @@
+@import "../../../global/styles/service/variables.scss";
+@import "../../../global/styles/service/colors.scss";
+@import "../../../global/styles/service/mixins.scss";
+
+.Track {
+  display: flex;
+  margin-top: 24px;
+  align-content: center;
+}
+
+.Track-Image {
+  height: 50px;
+  border-radius: 5px;
+}
+
+.Track-Info {
+  display: flex;
+  margin-left: 16px;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
+}
+
+.Track-Name {
+  color: $black
+}
+
+.Track-Timeline {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2px;
+}
+
+@-moz-document url-prefix() {
+  .Track-Timeline {
+    margin-top: 5px !important;
+  }
+}
+
+.Track-Length {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  margin-left: auto;
+  color: $playerAdditionalInfo
+}
+
+.player__preloader {
+  position: absolute;
+  z-index: 4;
+  background-color: rgba(255, 255, 255, 0.76);
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.Controllers {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.Controller-Right {
+  transform: rotate(180deg);
+  margin-top: -8px;
+}
+
+.Controller-Left {
+  margin-right: 27px;
+}
+
+.Controller-Volume {
+  display: flex;
+  width: calc(100% - 38px);
+  box-sizing: border-box;
+  align-items: center;
+  margin-left: 10px;
+  position: relative;
+}
+
+.Controller {
+  user-select: none;
+  width: 53px;
+  & > img {
+    -webkit-user-drag: none;
+  }
+}
+
+.Controller-Image {
+  width: 53px;
+}
+  .Track-TimelineRange {
+    width: calc(100% - 40px);
+    -webkit-appearance: none;
+    height: 20px;
+    background: none;
+  }
+
+  .Track-TimelineRange:focus {
+    outline: none;
+  }
+
+  .Track-TimelineRange::-moz-range-thumb {
+    border: none;
+    height: 20px;
+    width: 12px;
+    border-radius: 4.5px;
+    background: #D8D8D8;
+    cursor: pointer;
+  }
+  .Track-TimelineRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    position: relative;
+    top: -9px;
+    height: 20px;
+    width: 12px;
+    border-radius: 4.5px;
+    background: #D8D8D8;
+    cursor: pointer;
+  }
+
+  .Track-TimelineRange::-ms-thumb {
+    border: none;
+    height: 20px;
+    width: 12px;
+    border-radius: 4.5px;
+    background: #D8D8D8;
+    cursor: pointer;
+  }
+
+  .Track-TimelineRange::-moz-range-track {
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(167, 167, 167, 0.4);
+    cursor: pointer;
+  }
+
+  .Track-TimelineRange::-webkit-slider-runnable-track {
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(167, 167, 167, 0.4);
+    cursor: pointer;
+  }
+
+  .Track-TimelineRange::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  .Track-TimelineRange::-ms-fill-lower {
+    background: #979797;
+  }
+  .Track-TimelineRange:focus::-ms-fill-lower {
+    background: #979797;
+    border: 0.2px solid #979797;
+  }
+
+  .Track-TimelineRange::-ms-fill-upper {
+    border: 0.2px solid #979797;
+    border-radius: 2.6px;
+  }
+
+
+.Controller-VolumeRange {
+  height: 16px;
+  background: none;
+  width: calc(100% - 40px);
+  -webkit-appearance: none;
+}
+
+.Controller-VolumeRange:focus {
+  outline: none;
+}
+
+.Controller-VolumeRange::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #605757;
+  cursor: pointer;
+}
+
+.Controller-VolumeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  position: relative;
+  top: -6px;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #605757;
+  cursor: pointer;
+}
+
+.Controller-VolumeRange::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #605757;
+  cursor: pointer;
+}
+
+.Controller-VolumeRange::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(167, 167, 167, 0.25);
+  cursor: pointer;
+}
+
+.Controller-VolumeRange::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(167, 167, 167, 0.25);
+  cursor: pointer;
+}
+
+.Controller-VolumeRange::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+.Controller-VolumeRange::-ms-fill-lower {
+  border: 2px solid rgba(167, 167, 167, 0.25);
+}
+
+.Controller-VolumeRange:focus::-ms-fill-lower {
+  background: rgba(167, 167, 167, 0.25);
+}
+
+.Controller-VolumeRange::-ms-fill-upper {
+  background: rgba(167, 167, 167, 0.25);
+}
+
+.Controller-VolumeValue {
+  @extend .Track-Length
+}
+
+@include for-custom-width-from-to(0, 1000px) {
+  .track__name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+

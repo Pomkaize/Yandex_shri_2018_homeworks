@@ -2,6 +2,7 @@ import * as React from 'react';
 import { cn } from '@bem-react/classname';
 import {Image} from "../Image/Image";
 import "./Card.scss"
+import {CardData} from "../CardData/CardData";
 
 export const cnCard = cn('Card');
 
@@ -9,10 +10,11 @@ export interface iEventCardProps {
     title: string,
     source: string,
     time: string,
-    description: string|null,
+    description: string|undefined|null,
     icon: string,
     size: 's'|'l'|'m',
-    type:any,
+    type?:any,
+    data?: any,
     [key:string]:any
 }
 
@@ -25,7 +27,7 @@ export interface iCardButton {
 export const Card: React.FunctionComponent<iEventCardProps> = (props) => {
     return <div className={cnCard({type: props.type, size: props.size})}>
                 <CardButton imageName="next" align="top" white={props.type === 'critical'}/>
-                <CardButton imageName="cross" align="bottom" white={props.type === 'critical'}/>
+                <CardButton imageName="cross" align="bottom"/>
                 <div className={cnCard('Header')}>
                     <Image className={cnCard('Icon')} imageName={props.icon} white={props.type === 'critical'} ext="svg"/>
                     <h3 className={cnCard('Title')}>{props.title}</h3>
@@ -34,7 +36,7 @@ export const Card: React.FunctionComponent<iEventCardProps> = (props) => {
                     <div className={cnCard('Source')}>{props.source}</div>
                     <div className={cnCard('Time')}>{props.time}</div>
                 </div>
-                {props.children}
+                <CardData data={props.data} description={props.description}/>
            </div>
 };
 

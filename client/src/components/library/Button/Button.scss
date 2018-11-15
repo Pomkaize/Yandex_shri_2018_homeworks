@@ -2,14 +2,6 @@
 @import "../../../global/styles/service/colors.scss";
 @import "../../../global/styles/service/mixins.scss";
 
-/*.buttons {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-}*/
-/* .buttons {
-   margin-top: 24px;
- }*/
 .Button {
   cursor: pointer;
   outline: none;
@@ -28,6 +20,7 @@
   &:hover {
     box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50);
   }
+  margin-left: 18px;
 }
 
 @include for-phone-only {

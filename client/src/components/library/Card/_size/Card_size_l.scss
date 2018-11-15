@@ -3,6 +3,19 @@
 .Card_size_l {
   grid-row: span 3;
   grid-column: span 3;
+
+  .Card-Target {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .Card-Time {
+    margin: 0;
+  }
+
+  .Card-Source {
+    margin: 0;
+  }
 }
 
 .Card-Description {

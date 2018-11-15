@@ -8,7 +8,7 @@
   flex-direction: column;
   font-size: 20px;
   border-radius: 20px;
-  padding: $cardPaddingV $cardPaddingH;
+  padding: $cardPaddingV $cardPaddingH 0 $cardPaddingH;
   cursor: pointer;
   transition: box-shadow, background-color 0.2s ease;
   &:hover {
@@ -60,37 +60,8 @@
 
 .Card-Target {
   display: flex;
-  justify-content: space-between;
   font-size: 18px;
   margin: 20px 0 25px 0;
-}
-
-.Card-Description {
-  margin-top: auto;
-}
-
-.card_data_graph {
-  margin-top: 80px;
-}
-
-.card_data_image {
-  margin-top: 20px;
-  overflow: hidden;
-  border-radius:20px;
-  max-height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {
-   /* height: 120%;*/
-    width: 200%;
-    user-select: none;
-    touch-action: none;
-    position: relative;
-    top:0;
-    left:0;
-    transition: zoom 0.2s ease;
-  }
 }
 
 

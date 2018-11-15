@@ -16,12 +16,12 @@
     color: white;
   }
 
-  .Card-Description {
+  .CardData {
     padding: 20px;
     transition: background-color 0.2s ease;
     background-color: #FAFAFA;
     border-radius: 18px;
-    width: 100%;
+    width: calc(100% - 40px);
     margin-top: auto;
     margin-bottom: 0;
   }

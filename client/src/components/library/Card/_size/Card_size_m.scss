@@ -3,11 +3,26 @@
 .Card_size_m {
     grid-column: span 2;
     grid-row: span 1;
+
+  .Card-Target {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .Card-Time {
+    margin: 0;
+  }
+
+  .Card-Source {
+    margin: 0;
+  }
+
 }
 
 .Card-Description {
   color: $black;
 }
+
 
 
 @include for-custom-width-from-to(0, 820px) {

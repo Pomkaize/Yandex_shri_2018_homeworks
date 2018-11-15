@@ -25,6 +25,7 @@ const events: iEventCardProps[] = [
         "icon": "stats",
         "data": {
             "type": "graph",
+            "image": "Richdata@1x.png",
             "values": [
                 {
                     "electricity": [
@@ -161,7 +162,7 @@ const events: iEventCardProps[] = [
         "description": "Робопылесос не смог сменить свое местоположение в течение последних 3 минут. Похоже, ему нужна помощь.",
         "icon": "cam",
         "data": {
-            "image": "get_it_from_mocks_:3.jpg"
+            "image": "bitmap@1x.jpg"
         },
         "size": "l"
     },
@@ -183,7 +184,7 @@ export const Tape: React.FunctionComponent<iTapeProps> = (props) => {
                 <div className={cnTape('Container')}>
                     <h1 className={cnTape('Title')}>Лента событий</h1>
                     <div className={cnTape('Content')}>
-                        { events.map(event => <CardWithMod {...event}/>) }
+                        { events.map((event, index) => <CardWithMod {...event} key={index}/>) }
                     </div>
                 </div>
            </div>
